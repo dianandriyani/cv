@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+/* === custom color utilities === */
+@layer utilities {
+  .bg-dark-green { background-color: #1E2F1A; }
+  .text-dark-green { color: #1E2F1A; }
+
+  .bg-olive-green { background-color: #4C5944; }
+  .text-olive-green { color: #4C5944; }
+
+  .bg-brownish { background-color: #876A56; }
+  .text-brownish { color: #876A56; }
+
+  .bg-sand { background-color: #B7AB91; }
+  .text-sand { color: #B7AB91; }
+
+  .bg-off-white { background-color: #FFFFF6; }
+  .text-off-white { color: #FFFFF6; }
+}

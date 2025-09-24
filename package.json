@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "cv",
   "type": "module",
   "private": true,
   "scripts": {
@@ -12,7 +12,6 @@
   "dependencies": {
     "@nuxt/image": "^1.11.0",
     "@nuxtjs/google-fonts": "^3.2.0",
-    "@nuxtjs/tailwindcss": "^6.14.0",
     "@tailwindcss/vite": "^4.1.13",
     "nuxt": "^4.1.2",
     "tailwindcss": "^4.1.13",
@@ -20,6 +19,9 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.13",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
     "typescript": "^5.9.2",
     "vue-tsc": "^3.0.8"
   }
