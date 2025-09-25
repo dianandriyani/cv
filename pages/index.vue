@@ -162,7 +162,11 @@ useHead({
     >
       <div class="max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div class="flex justify-center">
-          <img src="/assets/images/me-summary.png" alt="Foto Dian" class="h-1/2 object-cover" />
+          <img
+            src="/assets/images/me-summary.png"
+            alt="Foto Dian"
+            class="md:h-1/2 h:1/4 object-cover"
+          />
         </div>
 
         <div class="text-left mb-6 pb-12">
@@ -243,7 +247,7 @@ useHead({
           </ul>
         </div>
 
-        <div class="bg-dark-green rounded-xl shadow flex flex-col h-80 md:h-[32rem]">
+        <div class="bg-dark-green rounded-xl shadow flex flex-col h-80 md:h-[32rem] pb-6">
           <h2 class="text-2xl font-bold text-center text-off-white px-4 py-3">Education</h2>
 
           <ul class="flex-1 overflow-y-auto p-4 space-y-4">
@@ -274,24 +278,6 @@ useHead({
         </div>
       </div>
     </section>
-
-    <!-- <section
-      id="skills"
-      :class="[
-        'snap-start flex items-center justify-center p-16 bg-sand transition-all duration-700 overflow-hidden',
-        unlocked ? 'h-screen opacity-100' : 'h-0 opacity-0 pointer-events-none',
-      ]"
-    >
-      <div class="max-w-3xl text-center">
-        <h2 class="text-5xl font-bold text-dark-green mb-6">Skills</h2>
-        <div class="flex flex-wrap justify-center gap-3">
-          <span class="bg-olive-green text-off-white px-4 py-2 rounded-full">Vue.js</span>
-          <span class="bg-olive-green text-off-white px-4 py-2 rounded-full">Nuxt</span>
-          <span class="bg-olive-green text-off-white px-4 py-2 rounded-full">JavaScript</span>
-          <span class="bg-olive-green text-off-white px-4 py-2 rounded-full">Tailwind CSS</span>
-        </div>
-      </div>
-    </section> -->
 
     <section
       id="skills"
