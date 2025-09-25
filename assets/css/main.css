@@ -1,19 +1,55 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* === custom color utilities === */
 @layer utilities {
-  .bg-dark-green { background-color: #1E2F1A; }
-  .text-dark-green { color: #1E2F1A; }
+  .bg-dark-green {
+    background-color: #1e2f1a;
+  }
+  .text-dark-green {
+    color: #1e2f1a;
+  }
 
-  .bg-olive-green { background-color: #4C5944; }
-  .text-olive-green { color: #4C5944; }
+  .bg-olive-green {
+    background-color: #4c5944;
+  }
+  .text-olive-green {
+    color: #4c5944;
+  }
 
-  .bg-brownish { background-color: #876A56; }
-  .text-brownish { color: #876A56; }
+  .bg-brownish {
+    background-color: #876a56;
+  }
+  .text-brownish {
+    color: #876a56;
+  }
 
-  .bg-sand { background-color: #B7AB91; }
-  .text-sand { color: #B7AB91; }
+  .bg-sand {
+    background-color: #b7ab91;
+  }
+  .text-sand {
+    color: #b7ab91;
+  }
 
-  .bg-off-white { background-color: #FFFFF6; }
-  .text-off-white { color: #FFFFF6; }
+  .bg-off-white {
+    background-color: #fffff6;
+  }
+  .text-off-white {
+    color: #fffff6;
+  }
+}
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.3s ease;
+}
+.slide-enter-from {
+  transform: translateX(-100%);
+}
+.slide-enter-to {
+  transform: translateX(0);
+}
+.slide-leave-from {
+  transform: translateX(0);
+}
+.slide-leave-to {
+  transform: translateX(-100%);
 }
