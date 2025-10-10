@@ -4,7 +4,7 @@ import type { Component } from 'vue';
 
 const isOpen = ref(false);
 
-const unlocked = ref(false);
+const unlocked = ref(true);
 
 function unlockSections() {
   unlocked.value = true;
@@ -168,9 +168,16 @@ onBeforeUnmount(() => {
         </li>
         <li>
           <a
-            href="#experience-education"
-            :class="unlocked ? navClass('experience-education') : 'text-white pointer-events-none'"
-            >Experience & Education</a
+            href="#education"
+            :class="unlocked ? navClass('education') : 'text-white pointer-events-none'"
+            >Education</a
+          >
+        </li>
+        <li>
+          <a
+            href="#experience"
+            :class="unlocked ? navClass('experience') : 'text-white pointer-events-none'"
+            >Experience</a
           >
         </li>
         <li>
@@ -191,11 +198,13 @@ onBeforeUnmount(() => {
             <a href="#summary" :class="navClass('summary')" @click="isOpen = false">Summary</a>
           </li>
           <li>
-            <a
-              href="#experience-education"
-              :class="navClass('experience-education')"
-              @click="isOpen = false"
-              >Experience & Education</a
+            <a href="#education" :class="navClass('education')" @click="isOpen = false"
+              >Education</a
+            >
+          </li>
+          <li>
+            <a href="#experience" :class="navClass('experience')" @click="isOpen = false"
+              >Experience</a
             >
           </li>
           <li><a href="#skills" :class="navClass('skills')" @click="isOpen = false">Skills</a></li>
@@ -297,94 +306,149 @@ onBeforeUnmount(() => {
     </section>
 
     <section
-      id="experience-education"
+      id="education"
       :class="[
         'snap-start flex items-center justify-center p-16 bg-olive-green transition-all duration-700 overflow-hidden',
         unlocked ? 'h-screen opacity-100' : 'h-0 opacity-0 pointer-events-none',
       ]"
     >
-      <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div class="bg-dark-green rounded-xl shadow flex flex-col h-80 md:h-[32rem] pb-6">
-          <h2 class="text-2xl font-bold text-off-white text-center px-4 py-3">Experience</h2>
+      <div class="w-full items-center justify-items-center">
+        <div class="flex flex-col pb-6 relative">
+          <h2 class="text-2xl font-bold text-center text-off-white px-4 py-3">Education</h2>
 
-          <ul class="flex-1 overflow-y-auto p-4 space-y-4">
-            <li class="bg-olive-green text-off-white rounded-xl shadow p-3 flex items-center gap-3">
-              <img
-                src="/assets/images/vision.svg"
-                alt="Vision+"
-                class="w-16 h-16 object-contain rounded-md bg-black p-2"
+          <ul class="relative ml-6">
+            <li
+              class="relative pl-8 before:absolute before:left-[0.4rem] before:top-1/2 before:w-[2px] before:bg-white/30 before:h-full last:before:hidden"
+            >
+              <span
+                class="absolute left-0 top-1/2 w-4 h-4 -translate-y-1/2 rounded-full bg-off-white border-2 border-dark-green"
               />
-              <div>
-                <h3 class="text-xl font-semibold">Frontend Developer - Vision+</h3>
-                <p class="text-sand text-sm">Mar 2023 - Present</p>
+
+              <div
+                class="bg-dark-green text-off-white rounded-2xl shadow p-4 flex items-center gap-3 mt-4 mb-4"
+              >
+                <img
+                  src="/assets/images/unnur.png"
+                  class="w-16 h-16 object-contain rounded-md bg-off-white p-2"
+                />
+                <div>
+                  <h3 class="text-xl md:text-2xl font-semibold">S1 Teknik Informatika</h3>
+                  <p class="text-sand text-sm md:text-base">
+                    Universitas Nurtanio Bandung (2017 - 2021)
+                  </p>
+                  <p class="text-sand text-sm md:text-base">
+                    Skripsi: Sistem Informasi Geografis Jalur Pendakian Gunung Burangrang via Legok
+                    Haji
+                  </p>
+                </div>
               </div>
             </li>
 
-            <li class="bg-olive-green text-off-white rounded-xl shadow p-3 flex items-center gap-3">
-              <img
-                src="/assets/images/phire.jpeg"
-                alt="Phire Studio"
-                class="w-16 h-16 object-contain rounded-md bg-off-white p-1"
+            <li
+              class="relative pl-8 before:absolute before:left-[0.4rem] before:top-0 before:w-[2px] before:bg-white/30 before:h-full last:before:hidden last:before:h-[calc(50%-1px)]"
+            >
+              <span
+                class="absolute left-0 top-1/2 w-4 h-4 -translate-y-1/2 rounded-full bg-off-white border-2 border-dark-green"
               />
-              <div>
-                <h3 class="text-xl font-semibold">Web Developer - Phire Studio</h3>
-                <p class="text-sand text-sm">Sep 2019 - Dec 2022</p>
-              </div>
-            </li>
-
-            <li class="bg-olive-green text-off-white rounded-xl shadow p-3 flex items-center gap-3">
-              <img
-                src="/assets/images/appschef.jpeg"
-                alt="Appschef"
-                class="w-16 h-16 object-contain rounded-md bg-off-white"
-              />
-              <div>
-                <h3 class="text-xl font-semibold">Java Developer - Appschef</h3>
-                <p class="text-sand text-sm">Dec 2016 - May 2018</p>
-              </div>
-            </li>
-
-            <li class="bg-olive-green text-off-white rounded-xl shadow p-3 flex items-center gap-3">
-              <img
-                src="/assets/images/ptdi.jpeg"
-                alt="Dirgantara Indonesia"
-                class="w-16 h-16 object-contain rounded-md bg-off-white"
-              />
-              <div>
-                <h3 class="text-xl font-semibold">
-                  Programmer Internship - PT Dirgantara Indonesia
-                </h3>
-                <p class="text-sand text-sm">Jun 2015 - Aug 2015</p>
+              <div
+                class="bg-dark-green text-off-white rounded-2xl shadow p-4 flex items-center gap-3 mt-4 mb-4"
+              >
+                <img
+                  src="/assets/images/smkn11.jpeg"
+                  class="w-16 h-16 object-contain rounded-md bg-off-white p-1"
+                />
+                <div>
+                  <h3 class="text-xl font-semibold">Rekayasa Perangkat Lunak</h3>
+                  <p class="text-sand text-sm">SMK Negeri 11 Bandung (2013 - 2016)</p>
+                </div>
               </div>
             </li>
           </ul>
         </div>
+      </div>
+    </section>
 
-        <div class="bg-dark-green rounded-xl shadow flex flex-col h-80 md:h-[32rem] pb-6">
-          <h2 class="text-2xl font-bold text-center text-off-white px-4 py-3">Education</h2>
-
-          <ul class="flex-1 overflow-y-auto p-4 space-y-4">
-            <li class="bg-olive-green text-off-white rounded-xl shadow p-3 flex items-center gap-3">
-              <img
-                src="/assets/images/unnur.png"
-                alt="S1"
-                class="w-16 h-16 object-contain rounded-md bg-off-white p-2"
-              />
-              <div>
-                <h3 class="text-xl font-semibold">S1 Teknik Informatika</h3>
-                <p class="text-sand text-sm">Universitas Nurtanio Bandung (2017 - 2021)</p>
+    <section
+      id="experience"
+      :class="[
+        'snap-start flex items-center justify-center p-16 bg-dark-green transition-all duration-700 h-80 overflow-hidden',
+        unlocked ? 'h-screen opacity-100' : 'h-0 opacity-0 pointer-events-none',
+      ]"
+    >
+      <div class="w-full items-center justify-items-center">
+        <div class="bg-dark-green rounded-xl shadow flex flex-col h-[calc(100vh-4rem)] mb-6">
+          <ul class="flex-1 overflow-y-auto p-4 space-y-6">
+            <li class="bg-olive-green text-off-white rounded-xl shadow p-6">
+              <div class="flex flex-col gap-3">
+                <div class="flex items-center justify-between">
+                  <p class="text-sand text-sm font-medium">Mar 2023 — Present</p>
+                  <h3 class="text-off-white font-semibold text-lg">Frontend Developer · Vision+</h3>
+                </div>
+                <p class="text-sand text-base leading-relaxed">
+                  Responsible for building and maintaining the Vision+ web application, focusing on
+                  responsive UI and optimal performance across devices.
+                </p>
+                <div class="flex flex-wrap gap-2 pt-2">
+                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                    Vue.js
+                  </span>
+                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> Nuxt </span>
+                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                    TailwindCSS
+                  </span>
+                </div>
               </div>
             </li>
-
-            <li class="bg-olive-green text-off-white rounded-xl shadow p-3 flex items-center gap-3">
-              <img
-                src="/assets/images/smkn11.jpeg"
-                alt="SMK"
-                class="w-16 h-16 object-contain rounded-md bg-off-white p-1"
-              />
-              <div>
-                <h3 class="text-xl font-semibold">Rekayasa Perangkat Lunak</h3>
-                <p class="text-sand text-sm">SMK Negeri 11 Bandung (2013 - 2016)</p>
+            <li class="bg-olive-green text-off-white rounded-xl shadow p-6">
+              <div class="flex flex-col gap-3">
+                <div class="flex items-center justify-between">
+                  <p class="text-sand text-sm font-medium">Sep 2019 - Dec 2022</p>
+                  <h3 class="text-off-white font-semibold text-lg">Web Developer · Phire Studio</h3>
+                </div>
+                <p class="text-sand text-base leading-relaxed">Lorem ipsum</p>
+                <div class="flex flex-wrap gap-2 pt-2">
+                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                    Vue.js
+                  </span>
+                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> Vuex </span>
+                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> PHP </span>
+                </div>
+              </div>
+            </li>
+            <li class="bg-olive-green text-off-white rounded-xl shadow p-6">
+              <div class="flex flex-col gap-3">
+                <div class="flex items-center justify-between">
+                  <p class="text-sand text-sm font-medium">Sep 2019 - Dec 2022</p>
+                  <h3 class="text-off-white font-semibold text-lg">Java Developer · Appschef</h3>
+                </div>
+                <p class="text-sand text-base leading-relaxed">Lorem ipsum</p>
+                <div class="flex flex-wrap gap-2 pt-2">
+                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> Java </span>
+                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                    Spring
+                  </span>
+                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                    Java Server Pages
+                  </span>
+                </div>
+              </div>
+            </li>
+            <li class="bg-olive-green text-off-white rounded-xl shadow p-6">
+              <div class="flex flex-col gap-3">
+                <div class="flex items-center justify-between">
+                  <p class="text-sand text-sm font-medium">Jun 2015 - Aug 2015</p>
+                  <h3 class="text-off-white font-semibold text-lg">
+                    Programmer Internship · PT Dirgantara Indonesia
+                  </h3>
+                </div>
+                <p class="text-sand text-base leading-relaxed">Lorem ipsum</p>
+                <div class="flex flex-wrap gap-2 pt-2">
+                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> Java </span>
+                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                    Java Server Pages
+                  </span>
+                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> MySQL </span>
+                </div>
               </div>
             </li>
           </ul>
@@ -395,7 +459,7 @@ onBeforeUnmount(() => {
     <section
       id="skills"
       :class="[
-        'snap-start flex items-center justify-center p-16 bg-sand transition-all duration-700 overflow-hidden',
+        'snap-start flex items-center justify-center p-16 bg-off-white transition-all duration-700 overflow-hidden',
         unlocked ? 'h-screen opacity-100' : 'h-0 opacity-0 pointer-events-none',
       ]"
     >
