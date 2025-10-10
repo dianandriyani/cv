@@ -62,18 +62,84 @@ const skills: Skill[] = [
 useHead({
   title: 'Dian Andriyani',
 });
+
+const words = [
+  'Front-End Developer | Ex Full-Stack Web Developer',
+  'Building smooth web experiences ✨',
+];
+
+const typingSpeed = 80;
+const deletingSpeed = 40;
+const pauseAfterTyped = 1200;
+const loop = true;
+
+const display = ref('');
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+let timer: ReturnType<typeof setTimeout> | null = null;
+let stopped = false;
+
+function schedule(fn: () => void, delay: number) {
+  if (stopped) return;
+  if (timer) clearTimeout(timer);
+  timer = setTimeout(fn, delay);
+}
+
+function startTyping() {
+  if (words.length === 0) {
+    display.value = '';
+    return;
+  }
+  const currentWord = words[wordIndex % words.length] ?? '';
+
+  if (!deleting) {
+    if (charIndex < currentWord.length) {
+      display.value = currentWord.slice(0, ++charIndex);
+      schedule(startTyping, typingSpeed);
+    } else {
+      schedule(() => {
+        deleting = true;
+        schedule(startTyping, deletingSpeed);
+      }, pauseAfterTyped);
+    }
+  } else {
+    if (charIndex > 0) {
+      display.value = currentWord.slice(0, --charIndex);
+      schedule(startTyping, deletingSpeed);
+    } else {
+      deleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      if (!loop && wordIndex === 0) {
+        stopped = true;
+        return;
+      }
+      schedule(startTyping, typingSpeed);
+    }
+  }
+}
+
+onMounted(() => {
+  stopped = false;
+  startTyping();
+});
+
+onBeforeUnmount(() => {
+  stopped = true;
+  if (timer) clearTimeout(timer);
+});
 </script>
 
 <template>
   <div
     :class="[
       'h-screen snap-y snap-mandatory scroll-smooth font-inter bg-off-white',
-      unlocked ? 'overflow-y-scroll' : 'overflow-hidden',
+      unlocked ? 'overflow-y-scroll scroll-pt-16' : 'overflow-hidden',
     ]"
   >
     <nav
       v-if="unlocked"
-      class="bg-sand shadow sticky top-0 z-20 h-16 flex items-center justify-between px-4 md:justify-center"
+      class="bg-sand shadow fixed w-full top-0 z-20 h-16 flex items-center justify-between px-4 md:justify-center"
     >
       <button class="md:hidden text-dark-green focus:outline-none" @click="isOpen = !isOpen">
         <svg
@@ -143,7 +209,10 @@ useHead({
     >
       <img src="/assets/images/me.png" alt="Foto Profil" class="h-1/2 mx-auto mb-6" />
       <h1 class="text-5xl font-bold mb-6">Dian Andriyani</h1>
-      <h3 class="text-xl font-semibold mb-6">Front-End Developer | Ex Full-Stack Web Developer</h3>
+      <h3 class="text-xl font-semibold mb-6 inline-flex items-center">
+        <span>{{ display }}</span>
+        <span class="ml-1 blinker">|</span>
+      </h3>
       <button
         v-if="!unlocked"
         class="px-6 py-3 bg-dark-green rounded-lg shadow hover:opacity-90 transition"
@@ -153,10 +222,11 @@ useHead({
       </button>
     </section>
 
+    <!-- section summary -->
     <section
       id="summary"
       :class="[
-        'snap-start flex items-center justify-center p-10 bg-off-white transition-all duration-700 overflow-hidden',
+        'snap-start flex items-center justify-center px-10 md:px-0 bg-off-white transition-all duration-700 overflow-hidden',
         unlocked ? 'h-screen opacity-100' : 'h-0 opacity-0 pointer-events-none',
       ]"
     >
@@ -165,13 +235,13 @@ useHead({
           <img
             src="/assets/images/me-summary.png"
             alt="Foto Dian"
-            class="md:h-1/2 h:1/4 object-cover"
+            class="md:h-1/2 h-5/12 object-cover"
           />
         </div>
 
-        <div class="text-left mb-6 pb-12">
-          <h2 class="text-3xl font-bold text-dark-green mb-6">Hey, I'm Dian!</h2>
-          <p class="text-olive-green text-lg text-justify">
+        <div class="text-left">
+          <h2 class="md:text-3xl text-2xl font-bold text-dark-green mb-6">Hey, I'm Dian!</h2>
+          <p class="text-olive-green md:text-lg text-base text-justify">
             Front-End Developer with 6 years of hands-on experience and a sprinkle of full-stack
             background. I geek out over clean code, elegant UI, and seamless user experiences. With
             thousands of hours turning ideas into real web apps, I’m always curious, always
@@ -179,6 +249,49 @@ useHead({
             performance, or exploring the latest front-end tech. Let’s build something awesome
             together! 💻
           </p>
+
+          <div class="flex items-center justify-start space-x-3 md:mt-5 mt-1 text-gray-600">
+            <a
+              href="https://github.com/dianandriyani"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-black transition"
+              aria-label="GitHub"
+            >
+              <IconsGithub class="w-8 h-8" />
+            </a>
+
+            <a
+              href="https://gitlab.com/diandriii"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-orange-600 transition"
+              aria-label="GitLab"
+            >
+              <IconsGitlab />
+            </a>
+
+            <a
+              href="mailto:dian.andri.das@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-blue-600 transition"
+              aria-label="Email"
+            >
+              <IconsMail class="w-8 h-8" />
+            </a>
+
+            <!-- phone -->
+            <a
+              href="https://wa.me/6282120292073"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center text-gray-500 text-sm ml-4 hover:text-green-600 transition"
+              aria-label="WhatsApp"
+            >
+              <IconsPhone class="w-8 h-8 mr-2 translate-y-[0.5px]" />
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -310,3 +423,14 @@ useHead({
     </section>
   </div>
 </template>
+<style scoped>
+.blinker {
+  display: inline-block;
+  animation: blink 1s steps(2, start) infinite;
+}
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+</style>
