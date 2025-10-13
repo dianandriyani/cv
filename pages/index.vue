@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { CodeBracketIcon, ServerIcon, WrenchIcon } from '@heroicons/vue/24/solid';
 import type { Component } from 'vue';
+import unnur from '@/assets/images/unnur.png';
+import smkn11 from '@/assets/images/smkn11.jpeg';
 
 const isOpen = ref(false);
 
@@ -119,6 +121,20 @@ function startTyping() {
   }
 }
 
+const eduList = [
+  {
+    title: 'S1 Teknik Informatika',
+    school: 'Universitas Nurtanio Bandung (2017 - 2021)',
+    extra: 'Skripsi: Sistem Informasi Geografis Jalur Pendakian Gunung Burangrang via Legok Haji',
+    img: unnur,
+  },
+  {
+    title: 'Rekayasa Perangkat Lunak',
+    school: 'SMK Negeri 11 Bandung (2013 - 2016)',
+    img: smkn11,
+  },
+];
+
 onMounted(() => {
   stopped = false;
   startTyping();
@@ -157,6 +173,10 @@ onBeforeUnmount(() => {
           />
         </svg>
       </button>
+
+      <span v-if="activeSection !== 'hero'" class="md:hidden text-dark-green focus:outline-none">
+        {{ activeSection.charAt(0).toUpperCase() + activeSection.slice(1) }}
+      </span>
 
       <ul class="hidden md:flex space-x-6">
         <li>
@@ -236,7 +256,9 @@ onBeforeUnmount(() => {
       id="summary"
       :class="[
         'snap-start flex items-center justify-center px-10 md:px-0 bg-off-white transition-all duration-700 overflow-hidden',
-        unlocked ? 'h-screen opacity-100' : 'h-0 opacity-0 pointer-events-none',
+        unlocked
+          ? 'md:h-screen h-[calc(100vh-4rem)] opacity-100'
+          : 'h-0 opacity-0 pointer-events-none',
       ]"
     >
       <div class="max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
@@ -244,13 +266,13 @@ onBeforeUnmount(() => {
           <img
             src="/assets/images/me-summary.png"
             alt="Foto Dian"
-            class="md:h-1/2 h-5/12 object-cover"
+            class="md:h-1/2 h-[300px] object-cover"
           />
         </div>
 
         <div class="text-left">
-          <h2 class="md:text-3xl text-2xl font-bold text-dark-green mb-6">Hey, I'm Dian!</h2>
-          <p class="text-olive-green md:text-lg text-base text-justify">
+          <h2 class="md:text-3xl text-xl font-bold text-dark-green mb-6">Hey, I'm Dian!</h2>
+          <p class="text-olive-green md:text-base text-sm text-justify">
             Front-End Developer with 6 years of hands-on experience and a sprinkle of full-stack
             background. I geek out over clean code, elegant UI, and seamless user experiences. With
             thousands of hours turning ideas into real web apps, I’m always curious, always
@@ -309,57 +331,31 @@ onBeforeUnmount(() => {
       id="education"
       :class="[
         'snap-start flex items-center justify-center p-16 bg-olive-green transition-all duration-700 overflow-hidden',
-        unlocked ? 'h-screen opacity-100' : 'h-0 opacity-0 pointer-events-none',
+        unlocked
+          ? 'h-[calc(100vh-4rem)] md:h-screen opacity-100'
+          : 'h-0 opacity-0 pointer-events-none',
       ]"
     >
       <div class="w-full items-center justify-items-center">
         <div class="flex flex-col pb-6 relative">
-          <h2 class="text-2xl font-bold text-center text-off-white px-4 py-3">Education</h2>
-
           <ul class="relative ml-6">
             <li
-              class="relative pl-8 before:absolute before:left-[0.4rem] before:top-1/2 before:w-[2px] before:bg-white/30 before:h-full last:before:hidden"
+              v-for="(edu, i) in eduList"
+              :key="i"
+              class="relative flex items-start gap-0 md:gap-4 pb-pb-10 last:pb-0 before:absolute before:left-[0.4rem] md:before:left-[1.4rem] before:top-0 before:h-full before:w-[3px] before:bg-white/30 before:content-[''] before:block first:before:top-1/2 first:before:h-1/2 last:before:h-1/2"
             >
               <span
-                class="absolute left-0 top-1/2 w-4 h-4 -translate-y-1/2 rounded-full bg-off-white border-2 border-dark-green"
+                class="absolute left-0 md:left-[1rem] top-1/2 w-4 h-4 -translate-y-1/2 rounded-full bg-off-white border-2 border-dark-green"
               />
 
               <div
-                class="bg-dark-green text-off-white rounded-2xl shadow p-4 flex items-center gap-3 mt-4 mb-4"
+                class="bg-dark-green text-off-white rounded-2xl shadow p-10 flex flex-wrap md:flex-nowrap items-center gap-3 mt-4 mb-4 w-full"
               >
-                <img
-                  src="/assets/images/unnur.png"
-                  class="w-16 h-16 object-contain rounded-md bg-off-white p-2"
-                />
+                <img :src="edu.img" class="w-16 h-16 object-contain rounded-md bg-off-white p-2" />
                 <div>
-                  <h3 class="text-xl md:text-2xl font-semibold">S1 Teknik Informatika</h3>
-                  <p class="text-sand text-sm md:text-base">
-                    Universitas Nurtanio Bandung (2017 - 2021)
-                  </p>
-                  <p class="text-sand text-sm md:text-base">
-                    Skripsi: Sistem Informasi Geografis Jalur Pendakian Gunung Burangrang via Legok
-                    Haji
-                  </p>
-                </div>
-              </div>
-            </li>
-
-            <li
-              class="relative pl-8 before:absolute before:left-[0.4rem] before:top-0 before:w-[2px] before:bg-white/30 before:h-full last:before:hidden last:before:h-[calc(50%-1px)]"
-            >
-              <span
-                class="absolute left-0 top-1/2 w-4 h-4 -translate-y-1/2 rounded-full bg-off-white border-2 border-dark-green"
-              />
-              <div
-                class="bg-dark-green text-off-white rounded-2xl shadow p-4 flex items-center gap-3 mt-4 mb-4"
-              >
-                <img
-                  src="/assets/images/smkn11.jpeg"
-                  class="w-16 h-16 object-contain rounded-md bg-off-white p-1"
-                />
-                <div>
-                  <h3 class="text-xl font-semibold">Rekayasa Perangkat Lunak</h3>
-                  <p class="text-sand text-sm">SMK Negeri 11 Bandung (2013 - 2016)</p>
+                  <h3 class="text-xl md:text-2xl font-semibold">{{ edu.title }}</h3>
+                  <p class="text-sand text-sm md:text-base">{{ edu.school }}</p>
+                  <p v-if="edu.extra" class="text-sand text-sm md:text-base">{{ edu.extra }}</p>
                 </div>
               </div>
             </li>
@@ -371,13 +367,17 @@ onBeforeUnmount(() => {
     <section
       id="experience"
       :class="[
-        'snap-start flex items-center justify-center p-16 bg-dark-green transition-all duration-700 h-80 overflow-hidden',
-        unlocked ? 'h-screen opacity-100' : 'h-0 opacity-0 pointer-events-none',
+        'snap-start flex items-center justify-center p-10 bg-dark-green transition-all duration-700 overflow-hidden',
+        unlocked
+          ? 'h-[calc(100vh-4rem)] md:h-screen opacity-100'
+          : 'h-0 opacity-0 pointer-events-none',
       ]"
     >
       <div class="w-full items-center justify-items-center">
-        <div class="bg-dark-green rounded-xl shadow flex flex-col h-[calc(100vh-4rem)] mb-6">
-          <ul class="flex-1 overflow-y-auto p-4 space-y-6">
+        <div
+          class="bg-dark-green rounded-xl shadow flex flex-col mb-6 max-h-[80vh] overflow-y-auto"
+        >
+          <ul class="flex-1 p-4 space-y-6">
             <li class="bg-olive-green text-off-white rounded-xl shadow p-6">
               <div class="flex flex-col gap-3">
                 <div class="flex items-center justify-between">
@@ -460,7 +460,9 @@ onBeforeUnmount(() => {
       id="skills"
       :class="[
         'snap-start flex items-center justify-center p-16 bg-off-white transition-all duration-700 overflow-hidden',
-        unlocked ? 'h-screen opacity-100' : 'h-0 opacity-0 pointer-events-none',
+        unlocked
+          ? 'h-[calc(100vh-4rem)] md:h-screen opacity-100'
+          : 'h-0 opacity-0 pointer-events-none',
       ]"
     >
       <div class="max-w-3xl text-center">
