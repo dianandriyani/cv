@@ -342,14 +342,14 @@ onBeforeUnmount(() => {
             <li
               v-for="(edu, i) in eduList"
               :key="i"
-              class="relative flex items-start gap-0 md:gap-4 pb-pb-10 last:pb-0 before:absolute before:left-[0.4rem] md:before:left-[1.4rem] before:top-0 before:h-full before:w-[3px] before:bg-white/30 before:content-[''] before:block first:before:top-1/2 first:before:h-1/2 last:before:h-1/2"
+              class="relative flex items-start gap-0 md:gap-4 pb-0 md:pb-10 last:pb-0 before:absolute before:left-[0.4rem] md:before:left-[1.4rem] before:top-0 before:h-full before:w-[3px] before:bg-white/30 before:content-[''] before:block first:before:top-1/2 first:before:h-1/2 last:before:h-1/2"
             >
               <span
                 class="absolute left-0 md:left-[1rem] top-1/2 w-4 h-4 -translate-y-1/2 rounded-full bg-off-white border-2 border-dark-green"
               />
 
               <div
-                class="bg-dark-green text-off-white rounded-2xl shadow p-10 flex flex-wrap md:flex-nowrap items-center gap-3 mt-4 mb-4 w-full"
+                class="bg-dark-green text-off-white rounded-2xl shadow p-10 flex flex-wrap md:flex-nowrap items-center gap-1 md:gap-3 mt-1 mb-1 md:mt-4 md:mb-4 w-full"
               >
                 <img :src="edu.img" class="w-16 h-16 object-contain rounded-md bg-off-white p-2" />
                 <div>
@@ -385,14 +385,18 @@ onBeforeUnmount(() => {
                   <h3 class="text-off-white font-semibold text-lg">Frontend Developer · Vision+</h3>
                 </div>
                 <p class="text-sand text-base leading-relaxed">
-                  Responsible for building and maintaining the Vision+ web application, focusing on
-                  responsive UI and optimal performance across devices.
+                  Built and maintained multiple projects for the Vision+ web platform, ensuring
+                  responsive design and optimal performance across devices, and Agile collaboration
+                  to deliver reliable, production-ready solutions.
                 </p>
                 <div class="flex flex-wrap gap-2 pt-2">
                   <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
                     Vue.js
                   </span>
                   <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> Nuxt </span>
+                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                    SolidJS
+                  </span>
                   <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
                     TailwindCSS
                   </span>
@@ -405,12 +409,17 @@ onBeforeUnmount(() => {
                   <p class="text-sand text-sm font-medium">Sep 2019 - Dec 2022</p>
                   <h3 class="text-off-white font-semibold text-lg">Web Developer · Phire Studio</h3>
                 </div>
-                <p class="text-sand text-base leading-relaxed">Lorem ipsum</p>
+                <p class="text-sand text-base leading-relaxed">
+                  Developed and shipped multiple client and internal projects, combining strong API
+                  design, responsive UI development, and Agile collaboration to deliver reliable,
+                  production-ready solutions.
+                </p>
                 <div class="flex flex-wrap gap-2 pt-2">
                   <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
                     Vue.js
                   </span>
                   <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> Vuex </span>
+                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> PHP </span>
                   <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> PHP </span>
                 </div>
               </div>
@@ -421,7 +430,10 @@ onBeforeUnmount(() => {
                   <p class="text-sand text-sm font-medium">Sep 2019 - Dec 2022</p>
                   <h3 class="text-off-white font-semibold text-lg">Java Developer · Appschef</h3>
                 </div>
-                <p class="text-sand text-base leading-relaxed">Lorem ipsum</p>
+                <p class="text-sand text-base leading-relaxed">
+                  Developed and shipped multiple client, responsive UI development, and Agile
+                  collaboration to deliver reliable, production-ready solutions.
+                </p>
                 <div class="flex flex-wrap gap-2 pt-2">
                   <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> Java </span>
                   <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
@@ -441,7 +453,10 @@ onBeforeUnmount(() => {
                     Programmer Internship · PT Dirgantara Indonesia
                   </h3>
                 </div>
-                <p class="text-sand text-base leading-relaxed">Lorem ipsum</p>
+                <p class="text-sand text-base leading-relaxed">
+                  Developed a web application that streamlined the process of managing and printing
+                  proof certificates.
+                </p>
                 <div class="flex flex-wrap gap-2 pt-2">
                   <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> Java </span>
                   <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
