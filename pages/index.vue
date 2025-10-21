@@ -575,7 +575,7 @@ onBeforeUnmount(() => {
               >
                 <div class="flex flex-col gap-3">
                   <div class="flex items-center justify-between">
-                    <p class="text-sand text-sm font-medium">Sep 2019 - Dec 2022</p>
+                    <p class="text-sand text-sm font-medium">Dec 2017 - Apr 2018</p>
                     <h3 class="text-off-white font-semibold text-lg flex flex-row gap-2">
                       Java Developer · Appschef <IconsArrowRightUp />
                     </h3>
