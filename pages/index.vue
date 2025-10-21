@@ -3,6 +3,8 @@ import { CodeBracketIcon, ServerIcon, WrenchIcon } from '@heroicons/vue/24/solid
 import type { Component } from 'vue';
 import unnur from '@/assets/images/unnur.png';
 import smkn11 from '@/assets/images/smkn11.jpeg';
+import education from '@/assets/images/education.svg';
+import school from '@/assets/images/school.svg';
 
 const isOpen = ref(false);
 
@@ -379,7 +381,7 @@ onBeforeUnmount(() => {
       </div>
     </section>
 
-    <section
+    <!-- <section
       id="education"
       :class="[
         'snap-start flex items-center justify-center p-16 bg-olive-green transition-all duration-700 overflow-hidden',
@@ -388,8 +390,68 @@ onBeforeUnmount(() => {
           : 'h-0 opacity-0 pointer-events-none',
       ]"
     >
+      <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
+        <img
+          :src="education"
+          alt=""
+          class="absolute top-0 right-0 w-[300px] md:w-[400px] opacity-80 pointer-events-none select-none"
+        />
+        <img
+          :src="school"
+          alt=""
+          class="absolute bottom-0 left-0 w-[300px] md:w-[400px] opacity-80 pointer-events-none select-none"
+        />
+      </div>
       <div class="w-full items-center justify-items-center">
         <div class="flex flex-col pb-6 relative">
+          <ul class="relative ml-6">
+            <li
+              v-for="(edu, i) in eduList"
+              :key="i"
+              class="relative flex items-start gap-0 md:gap-4 pb-0 md:pb-10 last:pb-0 before:absolute before:left-[0.4rem] md:before:left-[1.4rem] before:top-0 before:h-full before:w-[3px] before:bg-white/30 before:content-[''] before:block first:before:top-1/2 first:before:h-1/2 last:before:h-1/2"
+            >
+              <span
+                class="absolute left-0 md:left-[1rem] top-1/2 w-4 h-4 -translate-y-1/2 rounded-full bg-off-white border-2 border-dark-green"
+              />
+
+              <div
+                class="bg-dark-green text-off-white rounded-2xl shadow p-10 flex flex-wrap md:flex-nowrap items-center gap-1 md:gap-3 mt-1 mb-1 md:mt-4 md:mb-4 w-full"
+              >
+                <img :src="edu.img" class="w-16 h-16 object-contain rounded-md bg-off-white p-2" />
+                <div>
+                  <h3 class="text-xl md:text-2xl font-semibold">{{ edu.title }}</h3>
+                  <p class="text-sand text-sm md:text-base">{{ edu.school }}</p>
+                  <p v-if="edu.extra" class="text-sand text-sm md:text-base">{{ edu.extra }}</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section> -->
+
+    <section
+      id="education"
+      :class="[
+        'snap-start flex items-center justify-center p-16 bg-olive-green transition-all duration-700 overflow-hidden relative',
+        unlocked
+          ? 'h-[calc(100vh-4rem)] md:h-screen opacity-100'
+          : 'h-0 opacity-0 pointer-events-none',
+      ]"
+    >
+      <img
+        :src="education"
+        alt=""
+        class="absolute top-0 right-0 w-[50px] md:w-[200px] m-10 opacity-80 pointer-events-none select-none"
+      />
+      <img
+        :src="school"
+        alt=""
+        class="absolute bottom-0 left-0 w-[50px] md:w-[200px] m-10 opacity-80 pointer-events-none select-none"
+      />
+
+      <div class="relative z-10 w-full items-center justify-items-center flex flex-col">
+        <div class="flex flex-col pb-6">
           <ul class="relative ml-6">
             <li
               v-for="(edu, i) in eduList"
@@ -602,7 +664,7 @@ onBeforeUnmount(() => {
                   {{ project.name }} <IconsArrowRightUp />
                 </a>
                 <span v-else class="hover:text-sand transition">
-                  {{ project.name }} <IconsArrowRightUp />
+                  {{ project.name }}
                 </span>
               </h3>
               <p class="text-sand/80 mb-2">{{ project.desc }}</p>
