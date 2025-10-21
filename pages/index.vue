@@ -43,6 +43,7 @@ interface Skill {
   items: string[];
 }
 
+//gatau ini dipake atau engga gimana nanti
 const skills: Skill[] = [
   {
     category: 'Frontend',
@@ -60,6 +61,54 @@ const skills: Skill[] = [
     items: ['Git/GitHub', 'VS Code', 'Figma'],
   },
 ];
+
+const projects = ref([
+  // {
+  //   name: 'Vision+ TV',
+  //   desc: 'Smart TV app for Vision+, built using Vue 3 & Nuxt 3 for seamless streaming experience.',
+  //   madeAt: 'Vision+',
+  //   duration: 'Jun 2025 – Present',
+  //   stack: ['Vue 3', 'Nuxt 3', 'Tailwind'],
+  //   image: '/images/vision-tv.png',
+  //   link: '',
+  // },
+  // {
+  //   name: 'CMS Vision+ TV',
+  //   desc: 'Internal CMS for Vision+ content management system.',
+  //   madeAt: 'Vision+',
+  //   duration: 'Jun 2025 – Present',
+  //   stack: ['Vue 3', 'Pinia', 'REST API'],
+  //   image: '/images/cms-vision.png',
+  //   link: '',
+  // },
+  {
+    name: 'Smart TV Vision+',
+    desc: 'Cross-platform Smart TV app using SolidJS, TypeScript, Tailwind, and Nano Store',
+    madeAt: 'Vision+',
+    duration: 'Jun 2024 – Present',
+    stack: ['SolidJS', 'TypeScript', 'Tailwind', 'Nano Store'],
+    link: 'https://tv.visionplus.id/',
+  },
+  {
+    name: 'Business Support System Vision+',
+    desc: 'Internal web system for managing Vision+ business operations and support processes.',
+    madeAt: 'Vision+',
+    duration: 'Nov 2023 – Present',
+    stack: ['Nuxt 3', 'TypeScript', 'TailwindCSS', 'Pinia'],
+    link: 'https://visionplus.id/',
+  },
+  {
+    name: 'Dashboard CMS Vision+',
+    desc: 'Data visualization and content management dashboard with real-time analytics.',
+    madeAt: 'Vision+',
+    duration: 'Nov 2023 – Present',
+    stack: ['Nuxt 3', 'TypeScript', 'ApexCharts.js', 'TailwindCSS', 'Pinia'],
+    link: '',
+  },
+]);
+
+const desktopProjects = computed(() => projects.value.slice(0, 3));
+const mobileProjects = computed(() => projects.value.slice(0, 2));
 
 useHead({
   title: 'Dian Andriyani',
@@ -123,13 +172,14 @@ function startTyping() {
 
 const eduList = [
   {
-    title: 'S1 Teknik Informatika',
-    school: 'Universitas Nurtanio Bandung (2017 - 2021)',
-    extra: 'Skripsi: Sistem Informasi Geografis Jalur Pendakian Gunung Burangrang via Legok Haji',
+    title: 'Bachelor’s Degree in Informatics Engineering',
+    school: 'Bandung Nurtanio University (2017 - 2021)',
+    extra:
+      'Thesis: Geographic Information System for Mount Burangrang Hiking Trail via Legok Haji Route',
     img: unnur,
   },
   {
-    title: 'Rekayasa Perangkat Lunak',
+    title: 'Vocational High School in Software Engineering',
     school: 'SMK Negeri 11 Bandung (2013 - 2016)',
     img: smkn11,
   },
@@ -202,9 +252,9 @@ onBeforeUnmount(() => {
         </li>
         <li>
           <a
-            href="#skills"
-            :class="unlocked ? navClass('skills') : 'text-white pointer-events-none'"
-            >Skills</a
+            href="#projects"
+            :class="unlocked ? navClass('projects') : 'text-white pointer-events-none'"
+            >Projects</a
           >
         </li>
       </ul>
@@ -227,7 +277,9 @@ onBeforeUnmount(() => {
               >Experience</a
             >
           </li>
-          <li><a href="#skills" :class="navClass('skills')" @click="isOpen = false">Skills</a></li>
+          <li>
+            <a href="#projects" :class="navClass('projects')" @click="isOpen = false">Projects</a>
+          </li>
         </ul>
       </aside>
     </transition>
@@ -378,93 +430,145 @@ onBeforeUnmount(() => {
           class="bg-dark-green rounded-xl shadow flex flex-col mb-6 max-h-[80vh] overflow-y-auto"
         >
           <ul class="flex-1 p-4 space-y-6">
-            <li class="bg-olive-green text-off-white rounded-xl shadow p-6">
-              <div class="flex flex-col gap-3">
-                <div class="flex items-center justify-between">
-                  <p class="text-sand text-sm font-medium">Mar 2023 — Present</p>
-                  <h3 class="text-off-white font-semibold text-lg">Frontend Developer · Vision+</h3>
+            <li
+              class="bg-olive-green text-off-white rounded-xl shadow p-6 cursor-pointer hover:scale-[1.02] hover:bg-[#4b6043]"
+            >
+              <a
+                href="https://visionplus.id"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block transition-all duration-300"
+              >
+                <div class="flex flex-col gap-3">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sand text-sm font-medium">Mar 2023 — Present</p>
+                    <h3 class="text-off-white font-semibold text-lg flex flex-row gap-2">
+                      Frontend Developer · Vision+ <IconsArrowRightUp />
+                    </h3>
+                  </div>
+                  <p class="text-sand text-base leading-relaxed">
+                    Built and maintained multiple projects for the Vision+ web platform, ensuring
+                    responsive design and optimal performance across devices, and Agile
+                    collaboration to deliver reliable, production-ready solutions.
+                  </p>
+                  <div class="flex flex-wrap gap-2 pt-2">
+                    <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                      Vue.js
+                    </span>
+                    <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                      Nuxt
+                    </span>
+                    <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                      SolidJS
+                    </span>
+                    <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                      TailwindCSS
+                    </span>
+                  </div>
                 </div>
-                <p class="text-sand text-base leading-relaxed">
-                  Built and maintained multiple projects for the Vision+ web platform, ensuring
-                  responsive design and optimal performance across devices, and Agile collaboration
-                  to deliver reliable, production-ready solutions.
-                </p>
-                <div class="flex flex-wrap gap-2 pt-2">
-                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
-                    Vue.js
-                  </span>
-                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> Nuxt </span>
-                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
-                    SolidJS
-                  </span>
-                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
-                    TailwindCSS
-                  </span>
-                </div>
-              </div>
+              </a>
             </li>
-            <li class="bg-olive-green text-off-white rounded-xl shadow p-6">
-              <div class="flex flex-col gap-3">
-                <div class="flex items-center justify-between">
-                  <p class="text-sand text-sm font-medium">Sep 2019 - Dec 2022</p>
-                  <h3 class="text-off-white font-semibold text-lg">Web Developer · Phire Studio</h3>
+            <li
+              class="bg-olive-green text-off-white rounded-xl shadow p-6 cursor-pointer hover:scale-[1.02] hover:bg-[#4b6043]"
+            >
+              <a
+                href="https://phirestudio.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block transition-all duration-300"
+              >
+                <div class="flex flex-col gap-3">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sand text-sm font-medium">Sep 2019 - Dec 2022</p>
+                    <h3 class="text-off-white font-semibold text-lg flex flex-row gap-2">
+                      Web Developer · Phire Studio <IconsArrowRightUp />
+                    </h3>
+                  </div>
+                  <p class="text-sand text-base leading-relaxed">
+                    Developed and shipped multiple client and internal projects, combining strong
+                    API design, responsive UI development, and Agile collaboration to deliver
+                    reliable, production-ready solutions.
+                  </p>
+                  <div class="flex flex-wrap gap-2 pt-2">
+                    <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                      Vue.js
+                    </span>
+                    <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                      Vuex
+                    </span>
+                    <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> PHP </span>
+                    <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> PHP </span>
+                  </div>
                 </div>
-                <p class="text-sand text-base leading-relaxed">
-                  Developed and shipped multiple client and internal projects, combining strong API
-                  design, responsive UI development, and Agile collaboration to deliver reliable,
-                  production-ready solutions.
-                </p>
-                <div class="flex flex-wrap gap-2 pt-2">
-                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
-                    Vue.js
-                  </span>
-                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> Vuex </span>
-                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> PHP </span>
-                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> PHP </span>
-                </div>
-              </div>
+              </a>
             </li>
-            <li class="bg-olive-green text-off-white rounded-xl shadow p-6">
-              <div class="flex flex-col gap-3">
-                <div class="flex items-center justify-between">
-                  <p class="text-sand text-sm font-medium">Sep 2019 - Dec 2022</p>
-                  <h3 class="text-off-white font-semibold text-lg">Java Developer · Appschef</h3>
+            <li
+              class="bg-olive-green text-off-white rounded-xl shadow p-6 cursor-pointer hover:scale-[1.02] hover:bg-[#4b6043]"
+            >
+              <a
+                href="https://appschef.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block transition-all duration-300"
+              >
+                <div class="flex flex-col gap-3">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sand text-sm font-medium">Sep 2019 - Dec 2022</p>
+                    <h3 class="text-off-white font-semibold text-lg flex flex-row gap-2">
+                      Java Developer · Appschef <IconsArrowRightUp />
+                    </h3>
+                  </div>
+                  <p class="text-sand text-base leading-relaxed">
+                    Developed and shipped multiple client, responsive UI development, and Agile
+                    collaboration to deliver reliable, production-ready solutions.
+                  </p>
+                  <div class="flex flex-wrap gap-2 pt-2">
+                    <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                      Java
+                    </span>
+                    <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                      Spring
+                    </span>
+                    <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                      Java Server Pages
+                    </span>
+                  </div>
                 </div>
-                <p class="text-sand text-base leading-relaxed">
-                  Developed and shipped multiple client, responsive UI development, and Agile
-                  collaboration to deliver reliable, production-ready solutions.
-                </p>
-                <div class="flex flex-wrap gap-2 pt-2">
-                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> Java </span>
-                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
-                    Spring
-                  </span>
-                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
-                    Java Server Pages
-                  </span>
-                </div>
-              </div>
+              </a>
             </li>
-            <li class="bg-olive-green text-off-white rounded-xl shadow p-6">
-              <div class="flex flex-col gap-3">
-                <div class="flex items-center justify-between">
-                  <p class="text-sand text-sm font-medium">Jun 2015 - Aug 2015</p>
-                  <h3 class="text-off-white font-semibold text-lg">
-                    Programmer Internship · PT Dirgantara Indonesia
-                  </h3>
+            <li
+              class="bg-olive-green text-off-white rounded-xl shadow p-6 cursor-pointer hover:scale-[1.02] hover:bg-[#4b6043]"
+            >
+              <a
+                href="https://www.indonesian-aerospace.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block transition-all duration-300"
+              >
+                <div class="flex flex-col gap-3">
+                  <div class="flex items-center justify-between">
+                    <p class="text-sand text-sm font-medium">Jun 2015 - Aug 2015</p>
+                    <h3 class="text-off-white font-semibold text-lg flex flex-row gap-2">
+                      Programmer Internship · PT Dirgantara Indonesia <IconsArrowRightUp />
+                    </h3>
+                  </div>
+                  <p class="text-sand text-base leading-relaxed">
+                    Developed a web application that streamlined the process of managing and
+                    printing proof certificates.
+                  </p>
+                  <div class="flex flex-wrap gap-2 pt-2">
+                    <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                      Java
+                    </span>
+                    <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                      Java Server Pages
+                    </span>
+                    <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
+                      MySQL
+                    </span>
+                  </div>
                 </div>
-                <p class="text-sand text-base leading-relaxed">
-                  Developed a web application that streamlined the process of managing and printing
-                  proof certificates.
-                </p>
-                <div class="flex flex-wrap gap-2 pt-2">
-                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> Java </span>
-                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full">
-                    Java Server Pages
-                  </span>
-                  <span class="bg-sand text-off-white text-sm px-3 py-1 rounded-full"> MySQL </span>
-                </div>
-              </div>
+              </a>
             </li>
           </ul>
         </div>
@@ -472,32 +576,90 @@ onBeforeUnmount(() => {
     </section>
 
     <section
-      id="skills"
+      id="projects"
       :class="[
-        'snap-start flex items-center justify-center p-16 bg-off-white transition-all duration-700 overflow-hidden',
+        'snap-start flex items-center justify-center p-16 text-dark-green bg-off-white transition-all duration-700 overflow-hidden',
         unlocked
           ? 'h-[calc(100vh-4rem)] md:h-screen opacity-100'
           : 'h-0 opacity-0 pointer-events-none',
       ]"
     >
-      <div class="max-w-3xl text-center">
-        <h2 class="text-5xl font-bold text-dark-green mb-10">Skills</h2>
+      <div class="max-w-5xl mx-auto">
+        <div class="md:block hidden space-y-16 mt-20">
+          <div
+            v-for="(project, i) in desktopProjects"
+            :key="i"
+            class="flex flex-col md:flex-row items-start md:items-center gap-6"
+          >
+            <div>
+              <h3 class="text-2xl font-medium mb-1">
+                <a :href="project.link" target="_blank" class="hover:text-sand transition">
+                  {{ project.name }} <IconsArrowRightUp />
+                </a>
+              </h3>
+              <p class="text-sand/80 mb-2">{{ project.desc }}</p>
+              <p class="text-sand/70 text-sm italic mb-2">
+                {{ project.madeAt }} • {{ project.duration }}
+              </p>
 
-        <div class="space-y-6">
-          <div v-for="(skill, index) in skills" :key="index" class="text-left">
-            <h3 class="text-2xl font-semibold text-olive-green mb-3 flex flex-row">
-              <component :is="skill.icon" class="w-5 h-5 mt-3 mr-2" />
-              {{ skill.category }}
-            </h3>
-            <div class="flex flex-wrap gap-3">
-              <span
-                v-for="(item, idx) in skill.items"
-                :key="idx"
-                class="bg-olive-green text-off-white px-4 py-2 rounded-full"
-              >
-                {{ item }}
-              </span>
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span
+                  v-for="tech in project.stack"
+                  :key="tech"
+                  class="bg-deep-olive-green text-off-white px-3 py-1 rounded-full text-xs"
+                >
+                  {{ tech }}
+                </span>
+              </div>
             </div>
+          </div>
+
+          <div class="mt-12">
+            <NuxtLink
+              to="/projects"
+              class="inline-flex items-center gap-2 text-sand hover:text-off-white transition font-medium"
+            >
+              View Full Project Archive →
+            </NuxtLink>
+          </div>
+        </div>
+
+        <div class="block md:hidden space-y-10">
+          <div
+            v-for="(project, i) in mobileProjects"
+            :key="i"
+            class="flex flex-col md:flex-row items-start md:items-center gap-6"
+          >
+            <div>
+              <h3 class="text-2xl font-medium mb-1">
+                <a :href="project.link" target="_blank" class="hover:text-sand transition">
+                  {{ project.name }} <IconsArrowRightUp />
+                </a>
+              </h3>
+              <p class="text-sand/80 mb-2">{{ project.desc }}</p>
+              <p class="text-sand/70 text-sm italic mb-2">
+                {{ project.madeAt }} • {{ project.duration }}
+              </p>
+
+              <div class="flex flex-wrap gap-2 mt-2">
+                <span
+                  v-for="tech in project.stack"
+                  :key="tech"
+                  class="bg-deep-olive-green text-off-white px-3 py-1 rounded-full text-xs"
+                >
+                  {{ tech }}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-12">
+            <NuxtLink
+              to="/projects"
+              class="inline-flex items-center gap-2 text-sand hover:text-off-white transition font-medium"
+            >
+              View Full Project Archive →
+            </NuxtLink>
           </div>
         </div>
       </div>
