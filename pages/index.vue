@@ -593,9 +593,17 @@ onBeforeUnmount(() => {
           >
             <div>
               <h3 class="text-2xl font-medium mb-1">
-                <a :href="project.link" target="_blank" class="hover:text-sand transition">
+                <a
+                  v-if="project.link"
+                  :href="project.link"
+                  target="_blank"
+                  class="hover:text-sand transition"
+                >
                   {{ project.name }} <IconsArrowRightUp />
                 </a>
+                <span v-else class="hover:text-sand transition">
+                  {{ project.name }} <IconsArrowRightUp />
+                </span>
               </h3>
               <p class="text-sand/80 mb-2">{{ project.desc }}</p>
               <p class="text-sand/70 text-sm italic mb-2">
