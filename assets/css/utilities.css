@@ -1,0 +1,48 @@
+.container-custom {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.section {
+  padding-block: 96px;
+}
+
+.card {
+  background: white;
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.card-hover {
+  transition: 0.25s;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+
+  box-shadow: var(--shadow-md);
+}
+
+.glass {
+  backdrop-filter: blur(12px);
+
+  background: rgb(255 255 255 / 0.75);
+}
+
+.divider {
+  height: 1px;
+
+  background: var(--border);
+}
+
+.grid-bg {
+  background-image: radial-gradient(rgb(37 99 235 / 0.08) 1px, transparent 1px);
+
+  background-size: 22px 22px;
+}

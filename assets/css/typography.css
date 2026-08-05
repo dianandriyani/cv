@@ -1,0 +1,51 @@
+@import 'tailwindcss';
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: Inter, sans-serif;
+
+    color: var(--body);
+
+    background: var(--background);
+
+    font-size: 16px;
+
+    line-height: 160%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: var(--heading);
+
+    font-weight: 700;
+
+    line-height: 120%;
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  h3 {
+    font-size: 28px;
+  }
+
+  h4 {
+    font-size: 22px;
+  }
+
+  small {
+    font-size: 14px;
+  }
+}
