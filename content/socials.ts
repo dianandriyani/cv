@@ -1,10 +1,9 @@
 import type { Social } from '~/types/socials';
 
-
 export const socials: Social[] = [
   {
     label: 'GitHub',
-    href: 'https://github.com/your-username',
+    href: 'https://github.com/dianandriyani',
     icon: 'mdi:github',
   },
   {
