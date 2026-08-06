@@ -22,7 +22,7 @@ defineProps<Props>();
         <AtomsSectionTitle
           eyebrow="Featured Projects"
           title="Featured Projects"
-          description="A selection of production-ready applications and enterprise solutions I've contributed to throughout my career."
+          description="Recent products and web applications I've built and contributed to throughout my career."
         />
 
         <div class="flex justify-start lg:justify-end">
