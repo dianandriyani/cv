@@ -4,6 +4,6 @@ import MeImage from '~/assets/images/me.png';
 export const hero: Hero = {
   eyebrow: 'Front End Engineer',
   title: "Hi, I'm Dian Andriyani 👋",
-  description: 'Frontend developer focused on scalable architecture and reusable components.',
+  description: 'Frontend Engineer focused on scalable architecture and reusable components.',
   avatar: MeImage,
 };

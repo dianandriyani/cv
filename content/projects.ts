@@ -51,7 +51,7 @@ export const projects: Project[] = [
   },
   {
     slug: 'visionplus-v1',
-    year: 2024,
+    year: 2023,
     name: 'Vision+ Version 1',
     madeAt: 'Vision+',
     client: '',

@@ -17,14 +17,14 @@ defineProps<Props>();
 <template>
   <section
     id="contact"
-    class="relative overflow-hidden bg-gradient-to-br from-[var(--primary-600)] to-[var(--primary-700)] py-20"
+    class="relative overflow-hidden bg-linear-to-br from-(--primary-600) to-(--primary-700) py-20"
   >
     <div class="mx-auto max-w-5xl px-6 text-center">
       <AtomsSectionTitle
         light
         eyebrow="Contact"
-        title="Let's Build Something Together."
-        description="Whether it's a new opportunity, collaboration, or just saying hello, my inbox is always open."
+        title="Let's Work Together"
+        description="Interested in working together or discussing a new opportunity? I'd be happy to connect and hear more about your ideas."
         align="center"
       />
 
