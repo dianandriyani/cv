@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { socials } from '~/content/socials';
+import DianLogo from '~/assets/images/logo_dian.svg';
 
+import { socials } from '~/content/socials';
 </script>
 
 <template>
@@ -8,13 +9,18 @@ import { socials } from '~/content/socials';
     <div
       class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 md:flex-row"
     >
-      <div>
-        <p class="text-lg font-semibold text-white">Dian Andriyani</p>
+      <div class="flex flex-rows gap-2">
+        <NuxtLink to="/" aria-label="Dian Andriyani - Home">
+          <img :src="DianLogo" alt="Dian Andriyani" class="h-14 w-auto brightness-0 invert" />
+        </NuxtLink>
+        <div>
+          <p class="text-lg font-semibold text-white">Dian Andriyani</p>
 
-        <p class="mt-2 text-sm text-slate-400">
-          © {{ new Date().getFullYear() }}
-          All rights reserved.
-        </p>
+          <p class="mt-2 text-sm text-slate-400">
+            © {{ new Date().getFullYear() }}
+            All rights reserved.
+          </p>
+        </div>
       </div>
 
       <MoleculesSocialLinks :items="socials" />

@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { Icon } from '@iconify/vue';
+
+import DianLogo from '~/assets/images/logo_dian.svg';
+
 defineOptions({
   name: 'AppNavbar',
 });
@@ -26,7 +30,9 @@ const menus = [
 <template>
   <header class="sticky top-0 z-50 border-b border-neutral-200/70 bg-white/80 backdrop-blur-xl">
     <div class="mx-auto flex h-18 max-w-7xl items-center justify-between px-6">
-      <NuxtLink to="/" class="text-xl font-bold tracking-tight"> Dian. </NuxtLink>
+      <NuxtLink to="/" class="text-xl font-bold tracking-tight">
+        <img :src="DianLogo" alt="Dian Andriyani" class="h-10 w-auto" />
+      </NuxtLink>
 
       <nav class="hidden items-center gap-8 md:flex">
         <a
@@ -38,7 +44,6 @@ const menus = [
           {{ menu.label }}
         </a>
       </nav>
-
     </div>
   </header>
 </template>

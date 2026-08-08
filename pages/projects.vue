@@ -1,7 +1,18 @@
 <script setup lang="ts">
+import DianLogo from '~/assets/images/logo_dian.svg';
 import { Icon } from '@iconify/vue';
 
 import { projects } from '~/content/projects';
+
+useHead({
+  link: [
+    {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      href: DianLogo,
+    },
+  ],
+});
 
 useSeoMeta({
   title: 'Projects | Dian Andriyani',
@@ -26,28 +37,12 @@ const groupedProjects = Object.entries(
 
       <section class="bg-gradient-to-b from-[var(--primary-50)] to-white pt-16">
         <div class="mx-auto max-w-7xl px-6">
-
           <!-- Back -->
           <NuxtLink
             to="/"
-            class="
-              mb-8
-              inline-flex
-              items-center
-              gap-2
-              text-sm
-              font-medium
-              text-slate-500
-              transition-all
-              duration-300
-              hover:-translate-x-1
-              hover:text-[var(--primary-600)]
-            "
+            class="mb-8 inline-flex items-center gap-2 text-sm font-medium text-slate-500 transition-all duration-300 hover:-translate-x-1 hover:text-[var(--primary-600)]"
           >
-            <Icon
-              icon="solar:alt-arrow-left-linear"
-              class="size-5"
-            />
+            <Icon icon="solar:alt-arrow-left-linear" class="size-5" />
 
             Back to Home
           </NuxtLink>
